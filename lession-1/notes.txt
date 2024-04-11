@@ -1,0 +1,10 @@
+Options to view project in browser:
+
+1. Open index.html in browser
+2. Use live-server: run npx live-server in the project directory or if installed globally, run live-server 
+
+
+Run your JS-file locally:
+
+1. node <script_name>.js
+2. built in extensions
