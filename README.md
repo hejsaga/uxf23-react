@@ -1,2 +1,3 @@
-# uxf23-react
-A repository dedicated to learning React for UXF23
+# JS fundamentals and React
+A repository dedicated to learning React for UXF23.
+
