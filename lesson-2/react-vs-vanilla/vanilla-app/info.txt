@@ -1,0 +1,1 @@
+Run react version and vanilla version simultaneously by running live-server --port=4000 in this folder

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "live-server": "^1.2.2",
+    "node-fetch": "^2.7.0"
+  }
+}
