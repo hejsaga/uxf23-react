@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header style={headerStyle}>
-      <h1 style={titleStyle}>Tic Tac Toe</h1>
+      <h1 style={titleStyle}>The coolest game</h1>
       <div>
         <Link to="/">Game</Link>
         <Link to="/about">About</Link>
