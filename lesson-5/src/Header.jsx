@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header style={headerStyle}>
       <h1 style={titleStyle}>Tic Tac Toe</h1>
       <div>
-        <a href="#">Spel</a>
-        <a href="#">Länkar</a>
+        <Link to="/">Game</Link>
+        <Link to="/about">About</Link>
       </div>
     </header>
   );
