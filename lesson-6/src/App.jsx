@@ -1,12 +1,11 @@
 import "./App.css";
-import Counter from "./Counter";
-import Counter2 from "./Counter2";
+import FunctionalComponent from "./FunctionalComponent";
 
 function App() {
   return (
     <>
       <h1>Vite app</h1>
-      <Counter />
+      <FunctionalComponent />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Counter = () => {
+const FunctionalComponent = () => {
   const [count, setCount] = useState(0);
 
   const increment = () => {
@@ -14,10 +14,10 @@ const Counter = () => {
   return (
     <>
       <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={increment}>Increment</button>
       <button onClick={decrement}>Decrement</button>
     </>
   );
 };
 
-export default Counter;
+export default FunctionalComponent;
