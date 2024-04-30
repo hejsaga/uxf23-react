@@ -18,6 +18,7 @@ class ClassComponent extends React.Component {
     refererar till den aktuella instansen av komponenten. */
     this.state = {
       count: 0,
+      data: [],
     };
   }
 
@@ -29,12 +30,41 @@ class ClassComponent extends React.Component {
     this.setState({ count: this.state.count - 1 });
   };
 
+  // Livscykelmetod som körs när komponenten har monterats på DOM-trädet
+  componentDidMount() {
+    console.log("Component mounted");
+    // TODO: Fetch data, start timers, etc.
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => response.json())
+      .then((data) => {
+        // Uppdatera state med den hämtade datan
+        this.setState({ data: data });
+      })
+      .catch((error) => {
+        console.log("error: ", error);
+      });
+  }
+
+  // Livscykelmetod som körs när komponenten har uppdaterats med nya props eller state
+  componentDidUpdate(prevProps, prevState) {
+    // console.log("Component updated");
+    // TODO: Perform side-effects, e.g. fetch data based on updated props
+  }
+
+  // Livscykelmetod som körs när komponenten ska tas bort från DOM-trädet
+  componentWillUnmount() {
+    // console.log("Component will unmount");
+    // TODO: Clean up timers, event listeners, etc.
+  }
+
   render() {
     return (
       <>
         <p>Count: {this.state.count}</p>
         <button onClick={this.increment}>Increment</button>
         <button onClick={this.decrement}>Decrement</button>
+
+        <p>Data from state: {this.state.data.map((object) => object.title)}</p>
       </>
     );
   }
