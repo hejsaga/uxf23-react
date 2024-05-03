@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50  text-primary font-sans;
+  }
+
+  a {
+    @apply text-primary underline;
+  }
+
+  h1 {
+    @apply h-2;
+  }
+}
+
+.dark {
+  @apply bg-gray-800 text-slate-400;
+}
