@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50  text-primary font-sans;
+  }
+
+  a {
+    @apply text-primary underline;
+  }
+
+  h1 {
+    @apply h-2;
+  }
+}
+
+@layer components {
+  .page-layout {
+    @apply mx-10 my-10;
+  }
+}
