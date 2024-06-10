@@ -2,19 +2,30 @@ import React, { useContext, useState } from "react";
 import { PostContext } from "../context/PostContext";
 import { AuthContext } from "../context/AuthContext";
 
+type Comment = {
+  comment: string;
+  postId: number;
+};
+
 const Posts = () => {
   const { currentUser } = useContext(AuthContext);
   const context = useContext(PostContext);
   if (!context) throw new Error("Cannot use context outside of provider");
   const { posts, addComment, updatePost } = context;
 
-  const [comment, setComment] = useState<string>("");
+  const [postComment, setPostComment] = useState<Comment | undefined>();
   const [updatedText, setUpdatedText] = useState<string>("");
   const [editablePostId, setEditablePostId] = useState<number | null>(null);
 
   const handleUpdate = (postId: number) => {
     updatePost(postId, updatedText);
     setEditablePostId(null);
+  };
+
+  const handleAddComment = (postId: number, comment: string) => {
+    if (!postComment) return;
+    addComment(postId, comment);
+    setPostComment(undefined);
   };
 
   return (
@@ -82,16 +93,21 @@ const Posts = () => {
 
             <div className="flex items-center">
               <input
+                value={
+                  postComment?.postId === post.id ? postComment.comment : ""
+                }
                 type="text"
                 placeholder="Add a comment"
                 className="border border-gray-300 p-2 rounded-md w-full"
-                onChange={(e) => setComment(e.target.value)}
+                onChange={(e) =>
+                  setPostComment({ postId: post.id, comment: e.target.value })
+                }
               />
               <button
                 className="ml-3 bg-blue-500 text-white px-4 py-2 rounded-md"
-                onClick={() => {
-                  addComment(post.id, comment), setComment("");
-                }}
+                onClick={() =>
+                  handleAddComment(post.id, postComment?.comment || "")
+                }
               >
                 Add
               </button>
